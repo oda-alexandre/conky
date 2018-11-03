@@ -1,11 +1,6 @@
 # **<center>Conky</center>**
 
 
-**SITE WEB**
-
-https://oda-alexandre.github.io/conky.github.io/
-
-
 **INTRODUCTION**
 
 *Conky est un moniteur système. Il permet de surveiller de nombreux paramètres systèmes : nom de l'ordinateur, version système & kernel, durée de connexion, niveau de batterie, niveau d'utilisation du CPU, niveau d'utilisation de la RAM, niveau d'utilisation du disque dur, vitesse du trafic réseau en envois et en réception, nom du réseau Wi-Fi, puissance du réseau Wi-Fi, votre IP local, votre IP public, votre IP tor, autres périphériques connectés sur le même réseau par nom ou par IP local. L'affichage est intégré au bureau.*
