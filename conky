@@ -91,13 +91,13 @@ ${color2}SSID ${color0}${alignr}${wireless_essid wlan0}
 ${color2}Puissance ${color0}${alignr}${wireless_link_qual_perc wlan0} %
 ${color2}IP Local ${color0}${alignr}${addr wlan0}
 ${color2}IP Public ${color0}${alignr}${execi 1800 wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
-# ${color2}IP Tor ${alignr}${color0}${if_running tor}${exec torsocks wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
+${color2}IP Tor ${alignr}${color0}${if_running tor}${exec torsocks wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
 
 # MACHINES CONNECTES AU RESEAU (decomenter la ligne de votre choix)
-# ${color2}Machines sur le réseau
+${color2}Machines sur le réseau
 
 # AFFICHAGE PAR NOM
-# ${color0}${execi 100 nmap -sn 192.168.*.*/24  | awk -F " |/" '/report/ {print $5}'}
+${color0}${execi 100 nmap -sn 192.168.*.*/24  | awk -F " |/" '/report/ {print $5}'}
 
 # AFFICHAGE PAR ADRESSE IP
 # ${color0}${execi 100 nmap -sn 192.168.*.*/24  | awk -F " |/" '/MAC Address:/ {print $4,$5,$6}'}

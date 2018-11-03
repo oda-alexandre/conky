@@ -1,25 +1,58 @@
-# **<center>Conky</center>**
+# CONKY
+
+ ![conky](https://raw.githubusercontent.com/oda-alexandre/conky/master/conky.png)
 
 
-**INTRODUCTION**
+## INDEX
 
-*Conky est un moniteur système. Il permet de surveiller de nombreux paramètres systèmes : nom de l'ordinateur, version système & kernel, durée de connexion, niveau de batterie, niveau d'utilisation du CPU, niveau d'utilisation de la RAM, niveau d'utilisation du disque dur, vitesse du trafic réseau en envois et en réception, nom du réseau Wi-Fi, puissance du réseau Wi-Fi, votre IP local, votre IP public, votre IP tor, autres périphériques connectés sur le même réseau par nom ou par IP local. L'affichage est intégré au bureau.*
-
-
-**INSTALLATION**
-
-1 - Copier/Coller dans un terminal :
-
-    apt update
-    apt install git conky-manager -y
-    git clone https://github.com/oda-alexandre/conky.git
-    mv -f ~/conky/pizzadude_bullets /usr/share/fonts
-    mv ~/conky/conky ~/.conky/
-    rm -rf ~/conky/
-
-2 - Ouvrez le programme conky-manager et choisissez conky
+- [Introduction](#INTRODUCTION)
+- [Prerequis](#PREREQUIS)
+- [Installation](#INSTALLATION)
+- [License](#LICENSE)
 
 
-**LICENSE**
+## INTRODUCTION
 
-[![GPLv3+](http://gplv3.fsf.org/gplv3-127x51.png)](https://github.com/oda-alexandre/conky.github.io/blob/master/LICENSE)
+Conky est un moniteur système. Il permet de surveiller de nombreux paramètres systèmes :
+
+hostname
+version système & kernel
+durée de connexion
+niveau de batterie
+niveau de CPU
+niveau de RAM
+niveau HDD/SSD
+trafic réseau en envois et en réception
+Wi-Fi
+puissance Wi-Fi
+IP local
+IP public
+IP tor
+autres périphériques connectés sur le même réseau par hostname ou IP local
+
+
+## PREREQUIS
+
+Installer Conky
+
+
+## INSTALLATION
+
+```
+git clone https://github.com/oda-alexandre/conky.git
+mv -f ~/conky/pizzadude_bullets /usr/share/fonts
+mv ~/conky/conky ~/.conky/
+rm -rf ~/conky/
+```
+
+
+## CONFIGURATION
+
+Ouvrez le programme conky-manager et choisissez conky
+
+Vous pouvez modifier des options dans le fichier ~/conky/conky
+
+
+## LICENSE
+
+[![GPLv3+](http://gplv3.fsf.org/gplv3-127x51.png)](https://github.com/oda-alexandre/conky/blob/master/LICENSE)
