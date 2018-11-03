@@ -1,0 +1,103 @@
+background yes
+double_buffer yes
+
+alignment top_right
+
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+gap_x 10
+gap_y 0
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 0
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 200 0
+update_interval 1.0
+total_run_times 0
+stippled_borders 0
+uppercase no
+use_spacer none
+
+show_graph_scale no
+show_graph_range no
+
+use_xft yes
+xftalpha 0.1
+xftfont Droid Sans:size=10
+color0 white
+color1 EAEAEA
+color2 00FFFF
+color3 grey
+
+TEXT
+
+# SYSTEM & HOSTNAME
+${color2}$nodename
+${color2}$sysname $kernel
+
+# NIVEAU BATTERIE ET DUREE DE CONNECTION
+${color2}Connecter depuis ${color0}${alignr}${uptime}
+${color2}Niveau batterie ${color0}${alignr}${battery_percent} %
+
+# CPU
+${color2}CPU ${color0}${alignr}${cpu cpu0} %
+${cpubar cpu0}
+${top name 1} $alignr ${top cpu 1} %
+${top name 2} $alignr ${top cpu 2} %
+${top name 3} $alignr ${top cpu 3} %
+${top name 4} $alignr ${top cpu 4} %
+${top name 5} $alignr ${top cpu 5} %
+
+# RAM
+${color2}RAM ${color0}${alignr}${memperc} %
+${membar}
+${top_mem name 1} $alignr ${top mem 1} %
+${top_mem name 2} $alignr ${top mem 2} %
+${top_mem name 3} $alignr ${top mem 3} %
+${top_mem name 4} $alignr ${top mem 4} %
+${top_mem name 5} $alignr ${top mem 5} %
+
+# DISQUE DUR
+${color2}Disque Dur ${color0}${alignr}${fs_size /}
+${fs_bar}
+${color0}Espace libre ${color0}${alignr}${fs_free_perc /} %
+${color0}Espace utiliser ${color0}${alignr}${fs_used_perc /} %
+
+# RESEAU
+${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf wlan0} kb/s
+${downspeedgraph wlan0 40,}
+${color2}${voffset 4}${font PizzaDude Bullets:size=14}N${font} Upload ${color0}${alignr}${upspeedf wlan0} kb/s
+${upspeedgraph wlan0 40,}
+
+${color2}SSID ${color0}${alignr}${wireless_essid wlan0}
+${color2}Puissance ${color0}${alignr}${wireless_link_qual_perc wlan0} %
+${color2}IP Local ${color0}${alignr}${addr wlan0}
+${color2}IP Public ${color0}${alignr}${execi 1800 wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
+# ${color2}IP Tor ${alignr}${color0}${if_running tor}${exec torsocks wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
+
+# MACHINES CONNECTES AU RESEAU (decomenter la ligne de votre choix)
+# ${color2}Machines sur le réseau
+
+# AFFICHAGE PAR NOM
+# ${color0}${execi 100 nmap -sn 192.168.*.*/24  | awk -F " |/" '/report/ {print $5}'}
+
+# AFFICHAGE PAR ADRESSE IP
+# ${color0}${execi 100 nmap -sn 192.168.*.*/24  | awk -F " |/" '/MAC Address:/ {print $4,$5,$6}'}
