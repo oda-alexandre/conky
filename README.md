@@ -40,14 +40,8 @@ Installer Conky
 
 ```
 git clone https://github.com/oda-alexandre/conky.git
-```
-```
 mv -f ~/conky/pizzadude_bullets /usr/share/fonts
-```
-```
 mv ~/conky/conky ~/.conky/
-```
-```
 rm -rf ~/conky/
 ```
 
