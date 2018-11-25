@@ -1,6 +1,6 @@
 # CONKY
 
-![conky](https://raw.githubusercontent.com/oda-alexandre/conky/master/conky.png)
+![conky](https://raw.githubusercontent.com/oda-alexandre/conky/master/img/conky.png)
 
 
 ## INDEX
