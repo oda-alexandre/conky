@@ -81,7 +81,7 @@ ${fs_bar}
 ${color0}Espace libre ${color0}${alignr}${fs_free_perc /} %
 ${color0}Espace utiliser ${color0}${alignr}${fs_used_perc /} %
 
-# RESEAU
+# RÉSEAU
 ${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf wlan0} kb/s
 ${downspeedgraph wlan0 40,}
 ${color2}${voffset 4}${font PizzaDude Bullets:size=14}N${font} Upload ${color0}${alignr}${upspeedf wlan0} kb/s
@@ -93,7 +93,7 @@ ${color2}IP Local ${color0}${alignr}${addr wlan0}
 ${color2}IP Public ${color0}${alignr}${execi 1800 wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
 # ${color2}IP Tor ${alignr}${color0}${if_running tor}${exec torsocks wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
 
-# MACHINES CONNECTES AU RESEAU (decomenter la ligne de votre choix)
+# MACHINES CONNECTES AU RÉSEAU (decomenter la ligne de votre choix)
 # ${color2}Machines sur le réseau
 
 # AFFICHAGE PAR NOM
