@@ -39,7 +39,7 @@ Installer Conky
 ## INSTALLATION
 
 ```
-git clone https://github.com/oda-alexandre/conky.git
+git clone https://gitlab.com/oda-alexandre/conky.git
 mv -f ~/conky/pizzadude_bullets /usr/share/fonts
 mv ~/conky/conky ~/.conky/
 rm -rf ~/conky/
@@ -55,4 +55,4 @@ Vous pouvez modifier des options dans le fichier ~/conky/conky
 
 ## LICENSE
 
-[![GPLv3+](http://gplv3.fsf.org/gplv3-127x51.png)](https://github.com/oda-alexandre/conky/blob/master/LICENSE)
+[![GPLv3+](http://gplv3.fsf.org/gplv3-127x51.png)](https://gitlab.com/oda-alexandre/conky/blob/master/LICENSE)
