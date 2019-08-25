@@ -9,7 +9,6 @@
 - [Installation](#INSTALLATION)
 - [License](#LICENSE)
 
-
 ## INTRODUCTION
 
 Conky est un moniteur système. Il permet de surveiller de nombreux paramètres systèmes :
@@ -29,28 +28,25 @@ IP public
 IP tor
 autres périphériques connectés sur le même réseau par hostname ou IP local
 
-
 ## PREREQUIS
 
 Installer Conky
 
-
 ## INSTALLATION
 
-```
-git clone https://gitlab.com/oda-alexandre/conky.git
-mv -f ~/conky/pizzadude_bullets /usr/share/fonts
-mv ~/conky/conky ~/.conky/
-rm -rf ~/conky/
-```
+```git clone https://gitlab.com/oda-alexandre/conky.git```
 
+```mv -f ~/conky/pizzadude_bullets /usr/share/fonts```
+
+```mv ~/conky/conky ~/.conky/```
+
+```rm -rf ~/conky/```
 
 ## CONFIGURATION
 
 Ouvrez le programme conky-manager et choisissez conky
 
 Vous pouvez modifier des options dans le fichier ~/conky/conky
-
 
 ## LICENSE
 
