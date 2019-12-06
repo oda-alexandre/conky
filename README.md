@@ -4,33 +4,37 @@
 
 ## INDEX
 
-- [Introduction](#INTRODUCTION)
-- [Prerequis](#PREREQUIS)
-- [Installation](#INSTALLATION)
-- [License](#LICENSE)
+  - [INDEX](#index)
+  - [INTRODUCTION](#introduction)
+  - [PREREQUIS](#prerequis)
+  - [INSTALLATION](#installation)
+  - [CONFIGURATION](#configuration)
+  - [LICENSE](#license)
 
 ## INTRODUCTION
 
-Conky est un moniteur système. Il permet de surveiller de nombreux paramètres systèmes :
+Conky is a system monitor. It can monitor many system parameters:
 
 hostname
-version système & kernel
-durée de connexion
-niveau de batterie
-niveau de CPU
-niveau de RAM
-niveau HDD/SSD
-trafic réseau en envois et en réception
-Wi-Fi
-puissance Wi-Fi
-IP local
-IP public
-IP tor
-autres périphériques connectés sur le même réseau par hostname ou IP local
+system version & kernel
+connection time
+battery level
+CPU level
+RAM level
+HDD / SSD level
+network traffic Download/Upload
+Wireless
+Wi-Fi power
+Local IP
+Public IP
+tor IP
+other devices connected to the same network by hostname or local IP
 
 ## PREREQUIS
 
-Installer Conky
+Install Conky
+
+```apt-get install conky```
 
 ## INSTALLATION
 
@@ -44,9 +48,7 @@ Installer Conky
 
 ## CONFIGURATION
 
-Ouvrez le programme conky-manager et choisissez conky
-
-Vous pouvez modifier des options dans le fichier ~/conky/conky
+Open the conky-manager program and choose conky
 
 ## LICENSE
 
