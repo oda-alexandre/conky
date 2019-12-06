@@ -55,18 +55,15 @@ license_management:
   only:
     - dev
 
-test:
+test_app:
   stage: test
   allow_failure: false
   script:
     - echo -e '\033[36;1m ******* TEST APP ******** \033[0m'
-    - docker run --rm
-        --volume ${PWD}:/
-        debian:latest
-        apt install -y conky
-        mv -f /conky/pizzadude_bullets /usr/share/fonts
-        mv /conky/conky ~/.conky/
-        conky -c ~/.conky/conky
+    - apk add conky
+    - mv -f pizzadude_bullets/ /usr/share/fonts
+    - mv conky ~/.conky/
+    - conky -c ~/.conky/conky
   only:
     - dev
 
