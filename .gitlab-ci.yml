@@ -58,9 +58,10 @@ license_management:
 test_app:
   stage: test
   allow_failure: false
+  image: debian:latest
   script:
     - echo -e '\033[36;1m ******* TEST APP ******** \033[0m'
-    - apk add conky
+    - apt update && apt install -y conky
     - mv -f pizzadude_bullets/ /usr/share/fonts
     - mv conky ~/.conky/
     - conky -c ~/.conky/conky
