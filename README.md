@@ -1,6 +1,6 @@
 # CONKY
 
-<img src="https://raw.githubusercontent.com/oda-alexandre/conky/master/img/conky.png)" width="200" height="200"/>
+<img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904439/large.png" width="200" height="200"/>
 
 ## INDEX
 
