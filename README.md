@@ -1,56 +1,43 @@
 # CONKY
 
-<img src="https://raw.githubusercontent.com/oda-alexandre/conky/master/img/conky.png)" width="200" height="200"/>
+<img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904439/large.png" width="200" height="200"/>
+
 
 ## INDEX
 
-- [Introduction](#INTRODUCTION)
-- [Prerequis](#PREREQUIS)
-- [Installation](#INSTALLATION)
-- [License](#LICENSE)
+- [CONKY](#conky)
+  - [INDEX](#index)
+  - [BADGES](#badges)
+  - [INTRODUCTION](#introduction)
+  - [PREREQUISITES](#prerequisites)
+  - [INSTALL](#install)
+  - [LICENSE](#license)
 
+## BADGES
+
+[![pipeline status](https://gitlab.com/oda-alexandre/conky/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/conky/commits/master)
 
 ## INTRODUCTION
 
-Conky est un moniteur système. Il permet de surveiller de nombreux paramètres systèmes :
+Docker image of :
 
-hostname
-version système & kernel
-durée de connexion
-niveau de batterie
-niveau de CPU
-niveau de RAM
-niveau HDD/SSD
-trafic réseau en envois et en réception
-Wi-Fi
-puissance Wi-Fi
-IP local
-IP public
-IP tor
-autres périphériques connectés sur le même réseau par hostname ou IP local
+- [conky](https://github.com/brndnmtthws/conky)
 
+Continuous integration on :
 
-## PREREQUIS
+- [gitlab](https://gitlab.com/oda-alexandre/conky/pipelines)
 
-Installer Conky
+Automatically updated on :
 
+- [docker hub public](https://hub.docker.com/r/alexandreoda/conky)
 
-## INSTALLATION
+## PREREQUISITES
 
-```
-git clone https://gitlab.com/oda-alexandre/conky.git
-mv -f ~/conky/pizzadude_bullets /usr/share/fonts
-mv ~/conky/conky ~/.conky/
-rm -rf ~/conky/
-```
+Use [docker](https://www.docker.com)
 
+## INSTALL
 
-## CONFIGURATION
-
-Ouvrez le programme conky-manager et choisissez conky
-
-Vous pouvez modifier des options dans le fichier ~/conky/conky
-
+```docker run -d --name conky -v ${HOME}:/home/conky -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v /etc/localtime:/etc/localtime:ro --cap-add=NET_ADMIN --network host --restart always -e DISPLAY alexandreoda/conky```
 
 ## LICENSE
 
