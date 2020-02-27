@@ -2,53 +2,42 @@
 
 <img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904439/large.png" width="200" height="200"/>
 
+
 ## INDEX
 
+- [CONKY](#conky)
   - [INDEX](#index)
+  - [BADGES](#badges)
   - [INTRODUCTION](#introduction)
-  - [PREREQUIS](#prerequis)
-  - [INSTALLATION](#installation)
-  - [CONFIGURATION](#configuration)
+  - [PREREQUISITES](#prerequisites)
+  - [INSTALL](#install)
   - [LICENSE](#license)
+
+## BADGES
+
+[![pipeline status](https://gitlab.com/oda-alexandre/conky/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/conky/commits/master)
 
 ## INTRODUCTION
 
-Conky is a system monitor. It can monitor many system parameters:
+Docker image of :
 
-hostname
-system version & kernel
-connection time
-battery level
-CPU level
-RAM level
-HDD / SSD level
-network traffic Download/Upload
-Wireless
-Wi-Fi power
-Local IP
-Public IP
-tor IP
-other devices connected to the same network by hostname or local IP
+- [conky](https://github.com/brndnmtthws/conky)
 
-## PREREQUIS
+Continuous integration on :
 
-Install Conky
+- [gitlab](https://gitlab.com/oda-alexandre/conky/pipelines)
 
-```apt-get install conky```
+Automatically updated on :
 
-## INSTALLATION
+- [docker hub public](https://hub.docker.com/r/alexandreoda/conky)
 
-```git clone https://gitlab.com/oda-alexandre/conky.git```
+## PREREQUISITES
 
-```mv -f ~/conky/pizzadude_bullets /usr/share/fonts```
+Use [docker](https://www.docker.com)
 
-```mv ~/conky/conky ~/.conky/```
+## INSTALL
 
-```rm -rf ~/conky/```
-
-## CONFIGURATION
-
-Open the conky-manager program and choose conky
+```docker run -d --name conky -v ${HOME}:/home/conky -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v /etc/localtime:/etc/localtime:ro --cap-add=NET_ADMIN --network host --restart always -e DISPLAY alexandreoda/conky```
 
 ## LICENSE
 

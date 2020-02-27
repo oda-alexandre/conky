@@ -58,13 +58,10 @@ license_management:
 test_app:
   stage: test
   allow_failure: false
-  image: debian:latest
   script:
     - echo -e '\033[36;1m ******* TEST APP ******** \033[0m'
-    - apt update && apt install -y conky
-    - mv -f pizzadude_bullets/ /usr/share/fonts
-    - mv conky /root/.conky/
-    - conky -c /root/.conky/conky
+    - docker build -t ${CI_PROJECT_NAME} .
+    - docker run --rm -d ${CI_PROJECT_NAME}
   only:
     - dev
 
