@@ -54,8 +54,8 @@ ${color2}$nodename
 ${color2}$sysname $kernel
 
 # CALENDAR 
-# ${color2}Heure ${color0}${alignr}${time %H:%M:%S}
-# ${color2}Date ${color0}${alignr}${time %d/%m}
+${color2}Heure ${color0}${alignr}${time %H:%M:%S}
+${color2}Date ${color0}${alignr}${time %d/%m}
 
 # NIVEAU BATTERIE ET DUREE DE CONNECTION
 ${color2}Connecter depuis ${color0}${alignr}${uptime}
@@ -94,6 +94,7 @@ ${upspeedgraph wlan0 40,}
 ${color2}SSID ${color0}${alignr}${wireless_essid wlan0}
 ${color2}Puissance ${color0}${alignr}${wireless_link_qual_perc wlan0} %
 ${color2}IP Local ${color0}${alignr}${addr wlan0}
+
 # RÉSEAU WLAN1
 ${else}${if_up wlan1}
 ${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf wlan1} kb/s
@@ -103,6 +104,7 @@ ${upspeedgraph wlan1 40,}
 ${color2}SSID ${color0}${alignr}${wireless_essid wlan1}
 ${color2}Puissance ${color0}${alignr}${wireless_link_qual_perc wlan1} %
 ${color2}IP Local ${color0}${alignr}${addr wlan1}
+
 # RÉSEAU ETH0
 ${else}${if_up eth0}
 ${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf eth0} kb/s
@@ -112,6 +114,7 @@ ${upspeedgraph eth0 40,}
 ${color2}SSID ${color0}${alignr} eth0
 ${color2}Puissance ${color0}${alignr}${wireless_link_qual_perc eth0} %
 ${color2}IP Local ${color0}${alignr}${addr eth0}
+
 # IP PUBLIC
 ${color2}IP Public ${color0}${alignr}${execi 1800 wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
 # ${color2}IP Tor ${alignr}${color0}${if_running tor}${exec torsocks wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
