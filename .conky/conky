@@ -53,6 +53,10 @@ TEXT
 ${color2}$nodename
 ${color2}$sysname $kernel
 
+# CALENDAR 
+# ${color2}Heure ${color0}${alignr}${time %H:%M:%S}
+# ${color2}Date ${color0}${alignr}${time %d/%m}
+
 # NIVEAU BATTERIE ET DUREE DE CONNECTION
 ${color2}Connecter depuis ${color0}${alignr}${uptime}
 ${color2}Niveau batterie ${color0}${alignr}${battery_percent} %
@@ -81,23 +85,33 @@ ${fs_bar}
 ${color0}Espace libre ${color0}${alignr}${fs_free_perc /} %
 ${color0}Espace utiliser ${color0}${alignr}${fs_used_perc /} %
 
-# RÉSEAU
+# RÉSEAU WLAN0
+${if_up wlan0}
+${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf wlan0} kb/s
+${downspeedgraph wlan0 40,}
+${color2}${voffset 4}${font PizzaDude Bullets:size=14}N${font} Upload ${color0}${alignr}${upspeedf wlan0} kb/s
+${upspeedgraph wlan0 40,}
+${color2}SSID ${color0}${alignr}${wireless_essid wlan0}
+${color2}Puissance ${color0}${alignr}${wireless_link_qual_perc wlan0} %
+${color2}IP Local ${color0}${alignr}${addr wlan0}
+# RÉSEAU WLAN1
+${else}${if_up wlan1}
+${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf wlan1} kb/s
+${downspeedgraph wlan1 40,}
+${color2}${voffset 4}${font PizzaDude Bullets:size=14}N${font} Upload ${color0}${alignr}${upspeedf wlan1} kb/s
+${upspeedgraph wlan1 40,}
+${color2}SSID ${color0}${alignr}${wireless_essid wlan1}
+${color2}Puissance ${color0}${alignr}${wireless_link_qual_perc wlan1} %
+${color2}IP Local ${color0}${alignr}${addr wlan1}
+# RÉSEAU ETH0
+${else}${if_up eth0}
 ${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf eth0} kb/s
 ${downspeedgraph eth0 40,}
 ${color2}${voffset 4}${font PizzaDude Bullets:size=14}N${font} Upload ${color0}${alignr}${upspeedf eth0} kb/s
 ${upspeedgraph eth0 40,}
-
-${color2}SSID ${color0}${alignr}${wireless_essid eth0}
+${color2}SSID ${color0}${alignr} eth0
 ${color2}Puissance ${color0}${alignr}${wireless_link_qual_perc eth0} %
 ${color2}IP Local ${color0}${alignr}${addr eth0}
+# IP PUBLIC
 ${color2}IP Public ${color0}${alignr}${execi 1800 wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
 # ${color2}IP Tor ${alignr}${color0}${if_running tor}${exec torsocks wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
-
-# MACHINES CONNECTES AU RÉSEAU (decomenter la ligne de votre choix)
-# ${color2}Machines sur le réseau
-
-# AFFICHAGE PAR NOM
-# ${color0}${execi 100 nmap -sn 192.168.*.*/24  | awk -F " |/" '/report/ {print $5}'}
-
-# AFFICHAGE PAR ADRESSE IP
-# ${color0}${execi 100 nmap -sn 192.168.*.*/24  | awk -F " |/" '/MAC Address:/ {print $4,$5,$6}'}
