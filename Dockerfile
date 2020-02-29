@@ -4,11 +4,13 @@ LABEL authors https://www.oda-alexandre.com
 
 ENV USER conky
 ENV HOME /home/${USER}
+ENV VERSION 1.10.6
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   apt-get update && apt-get install --no-install-recommends -y \
   sudo \
+  wget \
   conky 
 
 RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
