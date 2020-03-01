@@ -9,7 +9,7 @@ stages:
   - staging
   - deploy
 
-  build:
+build:
   stage: build
   allow_failure: false
   script:
