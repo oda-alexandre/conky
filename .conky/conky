@@ -92,12 +92,12 @@ ${top_mem name 5} $alignr ${top mem 5} %
 # SWAP
 ${color2}SWAP ${color0}${alignr}${swapmax}
 ${swapbar}
-${color0}Free space ${color0}${alignr}${swapperc} %
+${color0}Used space ${color0}${alignr}${swapperc} %
 
 # HDD / SSD
 ${color2}${exec cat /sys/block/sda/queue/rotational | grep 1 >/dev/null && echo HDD || echo SSD }${color0}${alignr}${fs_size /}
 ${fs_bar}
-${color0}Free space ${color0}${alignr}${fs_free_perc /} %
+${color0}Used space ${color0}${alignr}${fs_used_perc /} %
 
 # NETWORK ETH0
 ${if_existing /proc/net/route eth0}${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf eth0} kb/s

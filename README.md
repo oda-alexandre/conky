@@ -37,7 +37,7 @@ Use [docker](https://www.docker.com)
 
 ## INSTALL
 
-```docker run -d --name conky -v /proc/:/proc/ -v /etc/localtime:/etc/localtime:ro --network host --restart always -e DISPLAY alexandreoda/conky```
+```docker run -d --name conky -v /etc/localtime:/etc/localtime:ro --pid host --network host --restart always -e DISPLAY alexandreoda/conky```
 
 ## LICENSE
 
