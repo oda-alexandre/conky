@@ -1,44 +1,18 @@
-background yes
+# CONKY SETTING
+override_utf8_locale yes
+
 double_buffer yes
-
-alignment top_right
-
-border_width 1
-cpu_avg_samples 2
-default_color white
-default_outline_color white
-default_shade_color white
-draw_borders no
-draw_graph_borders yes
-draw_outline no
-draw_shades no
-
-gap_x 10
-gap_y 0
-net_avg_samples 2
 no_buffers yes
-out_to_console no
-out_to_stderr no
-extra_newline no
 
-own_window yes
-own_window_type normal
-own_window_transparent yes
-own_window_colour 000000
-own_window_argb_visual yes
-own_window_argb_value 0
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-
-minimum_size 200 0
 update_interval 1.0
 total_run_times 0
-stippled_borders 0
-uppercase no
-use_spacer none
 
-show_graph_scale no
-show_graph_range no
+net_avg_samples 2
+cpu_avg_samples 2
 
+if_up_strictness address
+
+# TEXT SETTING
 use_xft yes
 xftalpha 0.1
 xftfont Droid Sans:size=10
@@ -47,15 +21,55 @@ color1 EAEAEA
 color2 00FFFF
 color3 grey
 
+# WINDOW SETTING
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 0
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 200 5
+
+out_to_console no
+out_to_stderr no
+
+extra_newline no
+
+# ALIGNMENT SETTING
+alignment top_right
+border_width 1
+
+gap_x 10
+gap_y 0
+
+# GRAPHICS SETTING
+show_graph_scale no
+show_graph_range no
+
+default_color white
+default_outline_color white
+default_shade_color white
+
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+stippled_borders 0
+uppercase no
+use_spacer none
+
 TEXT
 
 # SYSTEM & HOSTNAME
 ${color2}$nodename
 ${color2}$sysname $kernel
 
-# NIVEAU BATTERIE ET DUREE DE CONNECTION
-${color2}Connecter depuis ${color0}${alignr}${uptime}
-${color2}Niveau batterie ${color0}${alignr}${battery_percent} %
+# BATTERY
+${color2}Uptime ${color0}${alignr}${uptime}
+${color2}Battery percent ${color0}${alignr}${battery_percent} %
 
 # CPU
 ${color2}CPU ${color0}${alignr}${cpu cpu0} %
@@ -75,29 +89,51 @@ ${top_mem name 3} $alignr ${top mem 3} %
 ${top_mem name 4} $alignr ${top mem 4} %
 ${top_mem name 5} $alignr ${top mem 5} %
 
-# DISQUE DUR
-${color2}Disque Dur ${color0}${alignr}${fs_size /}
-${fs_bar}
-${color0}Espace libre ${color0}${alignr}${fs_free_perc /} %
-${color0}Espace utiliser ${color0}${alignr}${fs_used_perc /} %
+# SWAP
+${color2}SWAP ${color0}${alignr}${swapmax}
+${swapbar}
+${color0}Used space ${color0}${alignr}${swapperc} %
 
-# RÉSEAU
-${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf eth0} kb/s
+# HDD / SSD
+${color2}${exec cat /sys/block/sda/queue/rotational | grep 1 >/dev/null && echo HDD || echo SSD }${color0}${alignr}${fs_size /}
+${fs_bar}
+${color0}Used space ${color0}${alignr}${fs_used_perc /} %
+
+# NETWORK ETH0
+${if_existing /proc/net/route eth0}${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf eth0} kb/s
 ${downspeedgraph eth0 40,}
 ${color2}${voffset 4}${font PizzaDude Bullets:size=14}N${font} Upload ${color0}${alignr}${upspeedf eth0} kb/s
 ${upspeedgraph eth0 40,}
-
-${color2}SSID ${color0}${alignr}${wireless_essid eth0}
-${color2}Puissance ${color0}${alignr}${wireless_link_qual_perc eth0} %
-${color2}IP Local ${color0}${alignr}${addr eth0}
-${color2}IP Public ${color0}${alignr}${execi 1800 wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
-# ${color2}IP Tor ${alignr}${color0}${if_running tor}${exec torsocks wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
-
-# MACHINES CONNECTES AU RÉSEAU (decomenter la ligne de votre choix)
-# ${color2}Machines sur le réseau
-
-# AFFICHAGE PAR NOM
-# ${color0}${execi 100 nmap -sn 192.168.*.*/24  | awk -F " |/" '/report/ {print $5}'}
-
-# AFFICHAGE PAR ADRESSE IP
-# ${color0}${execi 100 nmap -sn 192.168.*.*/24  | awk -F " |/" '/MAC Address:/ {print $4,$5,$6}'}
+${color2}SSID ${color0}${alignr} eth0
+${color2}Puissance ${color0}${alignr}${totalup eth0}
+${color2}Local IP ${color0}${alignr}${addr eth0}
+${else}\
+\
+# NETWORK WLAN0
+${if_existing /proc/net/route wlan0}${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf wlan0} kb/s
+${downspeedgraph wlan0 40,}
+${color2}${voffset 4}${font PizzaDude Bullets:size=14}N${font} Upload ${color0}${alignr}${upspeedf wlan0} kb/s
+${upspeedgraph wlan0 40,}
+${color2}SSID ${color0}${alignr}${wireless_essid wlan0}
+${color2}Puissance ${color0}${alignr}${totalup wlan0}
+${color2}Local IP ${color0}${alignr}${addr wlan0}
+${else}\
+\
+# NETWORK WLAN1
+${if_existing /proc/net/route wlan1}${color2}${voffset 4}${font PizzaDude Bullets:size=14}T${font} Download ${color0}${alignr}${downspeedf wlan1} kb/s
+${downspeedgraph wlan1 40,}
+${color2}${voffset 4}${font PizzaDude Bullets:size=14}N${font} Upload ${color0}${alignr}${upspeedf wlan1} kb/s
+${upspeedgraph wlan1 40,}
+${color2}SSID ${color0}${alignr}${wireless_essid wlan1}
+${color2}Signal ${color0}${alignr}${wireless_link_qual_perc wlan1}
+${color2}Local IP ${color0}${alignr}${addr wlan1}
+${else}\
+\
+# NO NETWORK
+${color2}NO NETWORK CONNECTED
+${endif}${endif}${endif}\
+\
+# PUBLIC & TOR IP
+${color2}Public IP ${color0}${alignr}${execi 1800 wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
+${if_running tor}${color2}Tor IP ${color0}${alignr}${execi 1800 torsocks wget -qO- http://ipecho.net/plain 2> /dev/null ; echo }
+${endif}
