@@ -1,7 +1,6 @@
 # CONKY
 
-<img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904439/large.png" width="200" height="200"/>
-
+![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904439/large.png)
 
 ## INDEX
 
@@ -18,11 +17,9 @@
 
 [![pipeline status](https://gitlab.com/oda-alexandre/conky/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/conky/commits/master)
 
-
 ## FIRST UPDATE
 
 Date: 2018-01-01
-
 
 ## INTRODUCTION
 
