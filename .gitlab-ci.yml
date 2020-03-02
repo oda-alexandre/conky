@@ -5,10 +5,10 @@ services:
 
 stages:
   - build
-  - test
+  # - test
   - date
-  - staging
-  - deploy
+  # - staging
+  # - deploy
 
 build:
   stage: build
