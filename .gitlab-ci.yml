@@ -4,10 +4,9 @@ services:
   - docker:19.03.5-dind
 
 stages:
-  - date
+
   - build
-  # - test
-  # - staging
+  # - test  # - staging
   # - deploy
 
 build:
