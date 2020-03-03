@@ -1,14 +1,12 @@
 # CONKY
 
-<img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904439/large.png" width="200" height="200"/>
-
+![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904439/large.png)
 
 ## INDEX
 
 - [CONKY](#conky)
   - [INDEX](#index)
   - [BADGES](#badges)
-  - [FIRST UPDATE](#first-update)
   - [INTRODUCTION](#introduction)
   - [PREREQUISITES](#prerequisites)
   - [INSTALL](#install)
@@ -18,11 +16,9 @@
 
 [![pipeline status](https://gitlab.com/oda-alexandre/conky/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/conky/commits/master)
 
-
 ## FIRST UPDATE
 
-Date: 01-01-01
-
+Date: 2018-01-01
 
 ## INTRODUCTION
 
