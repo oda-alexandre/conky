@@ -7,9 +7,12 @@
 - [CONKY](#conky)
   - [INDEX](#index)
   - [BADGES](#badges)
+  - [FIRST UPDATE](#first-update)
   - [INTRODUCTION](#introduction)
   - [PREREQUISITES](#prerequisites)
   - [INSTALL](#install)
+    - [DOCKER RUN](#docker-run)
+    - [DOCKER COMPOSE](#docker-compose)
   - [LICENSE](#license)
 
 ## BADGES
@@ -28,7 +31,7 @@ Docker image of :
 
 Continuous integration on :
 
-- [gitlab](https://gitlab.com/oda-alexandre/conky/pipelines)
+- [gitlab pipelines](https://gitlab.com/oda-alexandre/conky/pipelines)
 
 Automatically updated on :
 
@@ -40,7 +43,27 @@ Use [docker](https://www.docker.com)
 
 ## INSTALL
 
-```docker run -d --name conky -v /etc/localtime:/etc/localtime:ro --pid host --network host --restart always -e DISPLAY alexandreoda/conky```
+### DOCKER RUN
+
+```docker run -d --name conky --pid host --network host --restart always -e DISPLAY alexandreoda/conky
+```
+
+### DOCKER COMPOSE
+
+```yml
+version: "3.7"
+
+services:
+  conky:
+    container_name: conky
+    image: alexandreoda/conky
+    restart: always
+    network_mode: host
+    pid: host
+    privileged: false
+    environment:
+      - DISPLAY
+```
 
 ## LICENSE
 
