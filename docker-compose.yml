@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  conky:
+    container_name: conky
+    image: alexandreoda/conky
+    restart: always
+    network_mode: host
+    pid: host
+    privileged: false
+    environment:
+      - DISPLAY
