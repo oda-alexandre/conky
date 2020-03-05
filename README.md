@@ -45,7 +45,8 @@ Use [docker](https://www.docker.com)
 
 ### DOCKER RUN
 
-```docker run -d --name conky --pid host --network host --restart always -e DISPLAY alexandreoda/conky
+```\
+docker  run -d --name conky --pid host --network host --restart always -e DISPLAY alexandreoda/conky
 ```
 
 ### DOCKER COMPOSE
