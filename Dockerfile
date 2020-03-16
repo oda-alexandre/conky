@@ -4,7 +4,6 @@ LABEL authors https://www.oda-alexandre.com
 
 ENV USER conky
 ENV HOME /home/${USER}
-ENV VERSION 1.10.6
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
