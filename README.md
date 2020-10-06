@@ -3,12 +3,11 @@
 ![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904439/large.png)
 
 - [CONKY](#conky)
-  - [INDEX](#index)
   - [BADGES](#badges)
   - [FIRST UPDATE](#first-update)
   - [INTRODUCTION](#introduction)
   - [PREREQUISITES](#prerequisites)
-  - [INSTALL](#install)
+  - [BUILD](#build)
     - [DOCKER RUN](#docker-run)
     - [DOCKER COMPOSE](#docker-compose)
   - [LICENSE](#license)
@@ -50,6 +49,7 @@ docker run -d \
 --network host \
 --pid host \
 -e DISPLAY \
+-v /etc/localtime:/etc/localtime:ro \
 alexandreoda/conky
 ```
 
@@ -68,6 +68,8 @@ services:
     privileged: false
     environment:
       - DISPLAY
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
 ```
 
 ## LICENSE
